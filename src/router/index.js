@@ -25,7 +25,7 @@ const routes = [
     path: '/onboarding',
     name: 'onboarding',
     component: () => import('@/views/OnboardingView.vue'),
-    meta: { public: true } // accessible before & after auth
+    meta: { requiresAuth: true }
   },
 
   // ─── Authenticated ──────────────────────────────────────

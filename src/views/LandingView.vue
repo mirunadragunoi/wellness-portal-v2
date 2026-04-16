@@ -15,7 +15,7 @@
 
     <!-- Quiz float button -->
     <RouterLink
-      to="/onboarding"
+      :to="quizTarget"
       class="quiz-float"
       :class="{ 'quiz-float--auth-mobile': authStore.isLoggedIn }"
     >
@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '@/stores/auth'
 import AppNavbarPublic   from '@/components/layout/AppNavbarPublic.vue'
@@ -38,6 +39,7 @@ import LandingTestimonials from '@/components/landing/LandingTestimonials.vue'
 import LandingFinalCTA   from '@/components/landing/LandingFinalCTA.vue'
 const { t } = useI18n()
 const authStore = useAuthStore()
+const quizTarget = computed(() => (authStore.isLoggedIn ? '/onboarding' : '/signup'))
 </script>
 
 <style scoped>
